@@ -40,4 +40,4 @@ AI agents build full products in one evening — then hit the last blocker: acce
 
 MIT © UniPaaS
 
-mcp-name: io.github.unipaas/paas-build-mcp
+mcp-name: io.github.UNIPaaS/paas-build-mcp

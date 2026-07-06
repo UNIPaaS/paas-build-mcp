@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
-  "name": "io.github.unipaas/paas-build-mcp",
-  "description": "Your AI agent takes a business live on payments: go_live creates a real merchant account (sandbox + production) the same day; create_checkout returns a payable link. Payments for AI builders, 3.9% flat.",
-  "version": "0.1.1",
+  "name": "io.github.UNIPaaS/paas-build-mcp",
+  "description": "Your agent opens a real merchant account (go_live) and takes payments the same day. 3.9% flat.",
+  "version": "0.1.2",
   "websiteUrl": "https://paas.build/agents",
   "repository": {
     "url": "https://github.com/UNIPaaS/paas-build-mcp",
@@ -13,8 +13,10 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@paasbuild/mcp",
-      "version": "0.1.1",
-      "transport": { "type": "stdio" },
+      "version": "0.1.2",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
         {
           "name": "PAAS_PROXY",

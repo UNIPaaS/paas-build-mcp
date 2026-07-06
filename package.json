@@ -1,6 +1,6 @@
 {
   "name": "@paasbuild/mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for paas.build \u2014 an AI agent can create a real merchant account (sandbox + production), mint checkout tokens and take a business live in one session. Payments for AI builders, 3.9% flat.",
   "keywords": [
     "mcp",
