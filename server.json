@@ -1,0 +1,28 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/server.json",
+  "name": "io.paas.build/mcp",
+  "displayName": "paas.build",
+  "description": "Payments for AI builders. Identify a business, go live (sandbox + production), and mint checkout tokens — no UI. You stay the merchant; your users get paid too. 3.9%.",
+  "version": "0.1.0",
+  "homepage": "https://paas.build",
+  "documentation": "https://paas.build/agents",
+  "license": "MIT",
+  "repository": { "url": "https://github.com/paas-build/mcp", "type": "git" },
+  "runtime": "node",
+  "keywords": ["payments", "checkout", "subscriptions", "stripe-alternative", "paddle-alternative", "payfac", "ai-builders", "payouts"],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@paas.build/mcp",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "PAAS_PROXY", "description": "paas.build API base (secrets live server-side). Default https://api.paas.build", "isRequired": false, "default": "https://api.paas.build" }
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "identify_business", "description": "Identify a business from a name/website/phrase using web search." },
+    { "name": "go_live", "description": "Create a live payment vendor (sandbox + production) and return access tokens." },
+    { "name": "create_checkout", "description": "Create a hosted checkout session and return a payable link." }
+  ]
+}

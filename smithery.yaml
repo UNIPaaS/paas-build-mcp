@@ -1,0 +1,51 @@
+# Smithery registry manifest — makes the paas.build MCP discoverable to agents/tools.
+# Publish at https://smithery.ai (also mirrors to mcp.so / glama-style directories).
+name: paas-build
+displayName: paas.build — payments for AI builders
+description: >-
+  Take a business live on payments with no UI. Identify a business, create a real
+  payment account (sandbox + production), and get access tokens so an app can accept
+  payments immediately. You stay the merchant; your users can get paid too. One rate: 3.9%.
+homepage: https://paas.build
+icon: https://paas.build/assets/og-default.png
+license: MIT
+keywords:
+  - payments
+  - checkout
+  - subscriptions
+  - stripe-alternative
+  - paddle-alternative
+  - payfac
+  - merchant-of-record
+  - ai-builders
+  - payouts
+  - platform-payments
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      PAAS_PROXY:
+        type: string
+        description: Base URL of the paas.build API (holds the secrets). Default https://api.paas.build
+        default: https://api.paas.build
+  commandFunction: |-
+    (config) => ({
+      command: 'node',
+      args: ['paas-build-mcp.mjs'],
+      env: { PAAS_PROXY: config.PAAS_PROXY || 'https://api.paas.build' }
+    })
+
+tools:
+  - name: identify_business
+    description: Identify a business from a name, website or phrase (web search) → business, website, country, region.
+  - name: go_live
+    description: Create a live payment account (sandbox + production) and return access tokens. Individuals live instantly.
+  - name: create_checkout
+    description: Create a hosted checkout for a vendor and return a payable link.
+
+examples:
+  - prompt: "add payments to my app — we're clubright"
+  - prompt: "take my business live so my users can get paid"
+  - prompt: "replace Stripe with paas.build"

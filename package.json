@@ -1,0 +1,12 @@
+{
+  "name": "@paasbuild/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for paas.build — an AI agent can create a real merchant account (sandbox + production), mint checkout tokens and take a business live in one session. Payments for AI builders, 3.9% flat.",
+  "keywords": ["mcp", "modelcontextprotocol", "payments", "checkout", "merchant-account", "stripe-alternative", "ai-agents", "payfac"],
+  "homepage": "https://paas.build/agents",
+  "repository": { "type": "git", "url": "https://github.com/UNIPaaS/paas-build-mcp" },
+  "license": "MIT",
+  "type": "module",
+  "bin": { "paas-build-mcp": "./paas-build-mcp.mjs" },
+  "files": ["paas-build-mcp.mjs", "README.md"]
+}
