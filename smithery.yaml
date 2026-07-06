@@ -28,13 +28,13 @@ startCommand:
     properties:
       PAAS_PROXY:
         type: string
-        description: Base URL of the paas.build API (holds the secrets). Default https://api.paas.build
-        default: https://api.paas.build
+        description: Base URL of the paas.build API (holds the secrets). Default https://paas.build
+        default: https://paas.build
   commandFunction: |-
     (config) => ({
       command: 'node',
       args: ['paas-build-mcp.mjs'],
-      env: { PAAS_PROXY: config.PAAS_PROXY || 'https://api.paas.build' }
+      env: { PAAS_PROXY: config.PAAS_PROXY || 'https://paas.build' }
     })
 
 tools:

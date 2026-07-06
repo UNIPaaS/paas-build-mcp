@@ -26,7 +26,7 @@ Then just say: **"take my business live."**
 
 | Env | Default | Notes |
 |---|---|---|
-| `PAAS_PROXY` | `https://api.paas.build` | The paas.build API (secrets stay server-side) |
+| `PAAS_PROXY` | `https://paas.build` | The paas.build API (secrets stay server-side) |
 
 The agent never holds platform keys — only scoped tokens for the vendor it created.
 
