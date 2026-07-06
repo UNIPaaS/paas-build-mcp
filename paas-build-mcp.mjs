@@ -8,7 +8,7 @@
 //
 // Config via env: PAAS_PROXY (default http://localhost:8791). The proxy holds all secrets.
 
-const PROXY = process.env.PAAS_PROXY || 'http://localhost:8791';
+const PROXY = process.env.PAAS_PROXY || 'https://api.paas.build';
 
 async function proxyPost(path, bodyObj) {
   const r = await fetch(PROXY + path, {
