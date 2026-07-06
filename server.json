@@ -1,28 +1,28 @@
 {
-  "$schema": "https://modelcontextprotocol.io/schema/server.json",
-  "name": "io.paas.build/mcp",
-  "displayName": "paas.build",
-  "description": "Payments for AI builders. Identify a business, go live (sandbox + production), and mint checkout tokens — no UI. You stay the merchant; your users get paid too. 3.9%.",
-  "version": "0.1.0",
-  "homepage": "https://paas.build",
-  "documentation": "https://paas.build/agents",
-  "license": "MIT",
-  "repository": { "url": "https://github.com/paas-build/mcp", "type": "git" },
-  "runtime": "node",
-  "keywords": ["payments", "checkout", "subscriptions", "stripe-alternative", "paddle-alternative", "payfac", "ai-builders", "payouts"],
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.unipaas/paas-build-mcp",
+  "description": "Your AI agent takes a business live on payments: go_live creates a real merchant account (sandbox + production) the same day; create_checkout returns a payable link. Payments for AI builders, 3.9% flat.",
+  "version": "0.1.1",
+  "websiteUrl": "https://paas.build/agents",
+  "repository": {
+    "url": "https://github.com/UNIPaaS/paas-build-mcp",
+    "source": "github"
+  },
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "@paas.build/mcp",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@paasbuild/mcp",
+      "version": "0.1.1",
       "transport": { "type": "stdio" },
       "environmentVariables": [
-        { "name": "PAAS_PROXY", "description": "paas.build API base (secrets live server-side). Default https://api.paas.build", "isRequired": false, "default": "https://api.paas.build" }
+        {
+          "name": "PAAS_PROXY",
+          "description": "paas.build API base (secrets stay server-side).",
+          "isRequired": false,
+          "default": "https://api.paas.build"
+        }
       ]
     }
-  ],
-  "tools": [
-    { "name": "identify_business", "description": "Identify a business from a name/website/phrase using web search." },
-    { "name": "go_live", "description": "Create a live payment vendor (sandbox + production) and return access tokens." },
-    { "name": "create_checkout", "description": "Create a hosted checkout session and return a payable link." }
   ]
 }

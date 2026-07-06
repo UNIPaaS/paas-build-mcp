@@ -7,9 +7,10 @@ Most payment MCPs manage an account you already have. This one goes a level deep
 ## Install
 
 ```bash
-git clone https://github.com/UNIPaaS/paas-build-mcp
-claude mcp add paas-build -- node paas-build-mcp/paas-build-mcp.mjs
+claude mcp add paas-build -- npx -y @paasbuild/mcp
 ```
+
+(or clone: `git clone https://github.com/UNIPaaS/paas-build-mcp && claude mcp add paas-build -- node paas-build-mcp/paas-build-mcp.mjs`)
 
 Then just say: **"take my business live."**
 
@@ -38,3 +39,5 @@ AI agents build full products in one evening — then hit the last blocker: acce
 - Powered by [UniPaaS](https://www.unipaas.com) — FCA-authorised payment institution (No. 929994)
 
 MIT © UniPaaS
+
+mcp-name: io.github.unipaas/paas-build-mcp
