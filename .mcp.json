@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "paas-build": {
+      "command": "npx",
+      "args": ["-y", "@paasbuild/mcp"],
+      "env": { "PAAS_PROXY": "https://paas.build" }
+    }
+  }
+}
