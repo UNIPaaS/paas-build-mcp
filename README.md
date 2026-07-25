@@ -6,13 +6,21 @@ Most payment MCPs manage an account you already have. This one goes a level deep
 
 ## Install
 
+**Set up the skill + slash commands (one command):**
+
+```bash
+npx @paasbuild/mcp install
+```
+
+This writes a paas.build **skill** plus `/paas-add-payments` and `/paas-check` commands into your project (`.claude/` + `AGENTS.md`), so your agent knows *when* and *how* to add payments. Then wire the **tools**:
+
 ```bash
 claude mcp add paas-build -- npx -y @paasbuild/mcp
 ```
 
-(or clone: `git clone https://github.com/UNIPaaS/paas-build-mcp && claude mcp add paas-build -- node paas-build-mcp/paas-build-mcp.mjs`)
+(or point any MCP client at `https://paas.build/mcp`)
 
-Then just say: **"take my business live."**
+Then just say: **"add payments to my app."**
 
 ## Tools
 
