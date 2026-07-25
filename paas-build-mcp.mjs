@@ -195,7 +195,40 @@ function runInstall() {
     .join("\n");
   process.stdout.write(out + "\n");
 }
-if (["install", "init", "setup"].indexOf(process.argv[2]) !== -1) { runInstall(); process.exit(0); }
+function runCheck() {
+  const root = process.cwd();
+  const rd = function (f) { try { return readFileSync(join(root, f), "utf8"); } catch (e) { return ""; } };
+  const pkgRaw = rd("package.json");
+  let depNames = "";
+  try { const p = JSON.parse(pkgRaw); depNames = Object.keys(Object.assign({}, p.dependencies, p.devDependencies)).join(" "); } catch (e) {}
+  const blob = (depNames + " " + pkgRaw + " " + rd("README.md") + rd("readme.md") + " " + rd(".env.example")).toLowerCase();
+  const stripe = /stripe|@stripe/.test(blob);
+  const paddle = /paddle/.test(depNames.toLowerCase());
+  const base44 = /base44/.test(blob), lovable = /lovable/.test(blob), bolt = /bolt\.new|stackblitz/.test(blob);
+  const marketplace = /connect|payout|multi-?vendor|marketplace|split.?payment|transfer_data|application_fee/.test(blob);
+  const aiBuilt = base44 ? "Base44" : lovable ? "Lovable" : bolt ? "Bolt" : "no";
+  const risk = (!stripe && !paddle)
+    ? "No payment integration detected yet. When you add Stripe, a newer account without a registered company (or non-US) commonly gets rejected right at onboarding."
+    : marketplace
+      ? "You look like a marketplace: paying out to your own users on Stripe means a Stripe Connect build plus heavier KYC, and newer platforms get held."
+      : "Stripe wants a registered company and a track record before a newer account can charge live - no-company and non-US builders keep getting rejected here.";
+  const fix = marketplace
+    ? "paas.build gives you a real merchant account the same day (no company) AND pays out to your own users without you building Connect - you stay the platform, on FCA-authorised UniPaaS rails."
+    : "paas.build gives you a real merchant account the same day with no company, you stay the merchant, on FCA-authorised UniPaaS rails - live before you flip any switch.";
+  const out = ["", "  paas.build - payment readiness  (local scan, nothing uploaded)", "  " + Array(53).join("-"),
+    "  Stripe wired:        " + (stripe ? "yes" : "not detected"),
+    "  Other processor:     " + (paddle ? "Paddle" : "-"),
+    "  AI-built:            " + aiBuilt,
+    "  Pays out to users:   " + (marketplace ? "likely (needs Stripe Connect)" : "no"),
+    "", "  Risk when you go live:", "    " + risk,
+    "", "  How paas.build fixes it:", "    " + fix,
+    "", "  Go live (no company, same day):  https://paas.build",
+    "  Deeper AI report (paste a URL):  https://paas.build/check", ""].join("\n");
+  process.stdout.write(out + "\n");
+}
+const _pbCmd = process.argv[2];
+if (["install", "init", "setup"].indexOf(_pbCmd) !== -1) { runInstall(); process.exit(0); }
+if (_pbCmd === "check") { runCheck(); process.exit(0); }
 
 // ---- minimal MCP stdio JSON-RPC loop ----
 function send(msg) { process.stdout.write(JSON.stringify(msg) + '\n'); }

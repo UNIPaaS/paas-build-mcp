@@ -22,6 +22,14 @@ claude mcp add paas-build -- npx -y @paasbuild/mcp
 
 Then just say: **"add payments to my app."**
 
+## Check your app first (private-safe)
+
+```bash
+npx @paasbuild/mcp check
+```
+
+Runs **locally** in your repo — nothing is uploaded. Tells you if you'll hit the Stripe no-company wall or need Connect to pay out your users, and how to go live instead. Public repo or a live URL instead? Use the web version at [paas.build/check](https://paas.build/check).
+
 ## Tools
 
 | Tool | What it does |
